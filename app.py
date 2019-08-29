@@ -1,11 +1,7 @@
-from flask import Flask, request
+from flask import Flask, request, Response
 from datetime import datetime
-#from redis import Redis, RedisError
 import os
 import socket
-
-# Connect to Redis
-#redis = Redis(host="redis", db=0, socket_connect_timeout=2, socket_timeout=2)
 
 app = Flask(__name__)
 
@@ -20,8 +16,51 @@ def hello():
 
 @app.route("/xml")
 def xml():
-    html = "<h3>To do... Wish this was XML!</h3>"
-    return html
+    xmlresponse = \
+        '''<?xml version="1.0" encoding="UTF-8"?>
+        <breakfast_menu>
+        <food>
+            <name>Belgian Waffles</name>
+            <price>$5.95</price>
+            <description>
+           Two of our famous Belgian Waffles with plenty of real maple syrup
+           </description>
+            <calories>650</calories>
+        </food>
+        <food>
+            <name>Strawberry Belgian Waffles</name>
+            <price>$7.95</price>
+            <description>
+            Light Belgian waffles covered with strawberries and whipped cream
+            </description>
+            <calories>900</calories>
+        </food>
+        <food>
+            <name>Berry-Berry Belgian Waffles</name>
+            <price>$8.95</price>
+            <description>
+            Belgian waffles covered with assorted fresh berries and whipped cream
+            </description>
+            <calories>900</calories>
+        </food>
+        <food>
+            <name>French Toast</name>
+            <price>$4.50</price>
+            <description>
+            Thick slices made from our homemade sourdough bread
+            </description>
+            <calories>600</calories>
+        </food>
+        <food>
+            <name>Homestyle Breakfast</name>
+            <price>$6.95</price>
+            <description>
+            Two eggs, bacon or sausage, toast, and our ever-popular hash browns
+            </description>
+            <calories>950</calories>
+        </food>
+        </breakfast_menu> '''
+    return Response(xmlresponse, mimetype='text/xml')
 
 @app.route("/add")
 def add():
