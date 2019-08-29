@@ -2,6 +2,7 @@
 Simple python app with multiple endpoints for demos.
 
 Docker Hub: https://cloud.docker.com/repository/docker/chorvath/pyadder
+Git: https://github.com/chase-horvath-ibm/PyAdder
 
 ## Build and run locally with Docker  
 ### Build
