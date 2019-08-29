@@ -4,11 +4,13 @@ Simple python app with multiple endpoints for demos.
 Docker Hub: https://cloud.docker.com/repository/docker/chorvath/pyadder  
 Git: https://github.com/chase-horvath-ibm/PyAdder
 
-## Build and run locally with Docker  
+## Build and run locally with Docker
+###Clone
+git clone https://github.com/chase-horvath-ibm/PyAdder
 ### Build
 sudo docker build -t "pyadder:latest" .
 ### Run in foreground with shell:
-docker run -it -p 80:80 pyadder:latest
+docker run -it -p 80:80 pyadder:latest  
 
 ## Use examples
 ### For a GUI, browse to http://localhost:80/PyAdder
