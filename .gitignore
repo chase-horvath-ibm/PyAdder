@@ -8,4 +8,5 @@
 !requirements.txt
 !.gitignore
 !.dockerignore
-!/kubernetes/*
+!/kubernetes
+!/kubernetes*

@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pyadder-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: pyadder
+  ports:
+    - port: 30004
+      targetPort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: pyadder-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pyadder
+  template:
+    metadata:
+      labels:
+        app: pyadder
+    spec:
+      containers:
+      - name: pyadder
+        image: chorvath/pyadder:latest
+        ports:
+          - name: http
+            containerPort: 80
